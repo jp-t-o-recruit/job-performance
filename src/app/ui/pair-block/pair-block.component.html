@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+  <li *ngFor="let tab of tabs">
+    <a class="nav-link" href="#" (click)="active = tab.name;" [ngClass]="{ 'active': active === tab.name}">{{tab.label}}</a>
+  </li>
+</ul>
+
+
+
+  <div class="card" *ngFor="let tab of tabs">
+    <div class="card-body">
+      <ng-container *ngTemplateOutlet="tab.template"></ng-container>
+    </div>
+  </div>

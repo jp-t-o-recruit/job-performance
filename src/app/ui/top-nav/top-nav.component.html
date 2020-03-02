@@ -1,0 +1,9 @@
+<header class="navbar">
+	<section class="navbar-center">
+		<ng-container *ngFor="let menu of menus">
+			<a class="btn btn-link" [routerLink]="[menu.link]" routerLinkActive="active">
+        {{menu.label}}
+			</a>
+		</ng-container>
+	</section>
+</header>

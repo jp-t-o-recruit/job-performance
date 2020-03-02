@@ -1,0 +1,19 @@
+<div class="update-notification-container" *ngIf="showUpdate">
+	<div class="update-notification d-flex justify-content-center align-items-center">
+		<p>
+			アプリの新しいバージョンがあります。
+		</p>
+		<button type="button" (click)="doUpdate()" class="btn btn-primary">今すぐ更新する</button>
+	</div>
+</div>
+
+<div class="update-notification-container" *ngIf="showUpdated">
+	<div class="update-notification d-flex justify-content-center align-items-center">
+		<p>
+			アプリのバージョンを更新しました。
+		</p>
+		<button type="button" (click)="hideShowUpdated()" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+	</div>
+</div>

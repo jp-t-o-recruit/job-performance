@@ -1,0 +1,20 @@
+.update-notification-container {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+}
+.update-notification {
+	padding: 10px;
+	background-color: #eee;
+	border: 1px solid #4a4a4a;
+	border-radius: 5px;
+	max-width: 500px;
+	margin: auto;
+}
+p {
+	margin: 0;
+}
+button {
+	margin-left: 10px;
+}

@@ -1,0 +1,66 @@
+<ng-template #LoginCode>
+  <form
+    novalidate
+    #loginForm="ngForm"
+    (submit)="login($event)">
+
+    <app-label-input
+      [name]="'id'"
+      [label]="'ID:'"
+      [required]="true"
+      [(ngModel)]="id"
+    ></app-label-input>
+
+    <br/>
+
+    <app-label-input
+      [inputType]="'password'"
+      [name]="'password'"
+      [label]="'PW:'"
+      [required]="true"
+      [(ngModel)]="password"
+    ></app-label-input>
+
+    <button
+      type="submit"
+      [disabled]="loginForm.invalid">
+      ログイン
+    </button>
+
+  </form>
+</ng-template>
+<ng-template #LoginDescription>
+  <h5 class="subtitle">
+    ページ全体 src/app/content/login
+  </h5>
+  <p >
+    webの標準的な入力フォームに Angular の動的制御を組み込んだサンプル。
+  </p>
+  <p >
+    フォーム送信（API通信）前のフールプルーフとして正規表現や文字数制約のチェックを入力したタイミングで実施する。
+    その入力制約状態を元にメッセージの表示やログインボタンを無効化する。
+  </p>
+  <h5 class="subtitle">
+    入力部品 src/app/ui/label-input
+  </h5>
+  <p>label要素、input要素、エラーメッセージをまとめたコンポーネント。</p>
+  <p>
+    コンポーネントとは、一連の UI 機能を再利用できるようにするための UI 内の責任領域を定義する Angular の基本機能。
+    1UI 要素として HTML および Typescript により実装する。
+  </p>
+  <p>
+    可変部分はパラメータとして指定することで、HTML 構成の実装を省力化やメンテナンス性向上を図る。
+  </p>
+</ng-template>
+
+<app-pair-block [tabs]="[
+  {
+    name: 'code',
+    label: '実画面',
+    template: LoginCode
+  },{
+    name: 'description',
+    label: '説明',
+    template: LoginDescription
+  }]">
+</app-pair-block>
