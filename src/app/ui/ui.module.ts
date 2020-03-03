@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { TopNavComponent } from './top-nav/top-nav.component';
-import { LabelInputComponent } from './label-input/label-input.component';
-import { UpdateNotificationComponent } from './update-notification/update-notification.component';
-import { PwaToolbarComponent } from './pwa/pwa-toolbar/pwa-toolbar.component';
-import { OnlineStateComponent } from './pwa/online-state/online-state.component';
 import { CheckForUpdateService } from '../service/pwa/check-for-update.service';
-import { PairBlockComponent } from './display-toggle-block/display-toggle-block.component';
+import { DisplayToggleBlockContainerComponent } from './display-toggle-block/display-toggle-block-container.component';
+import { DisplayToggleBlockComponent } from './display-toggle-block/display-toggle-block.component';
+import { LabelInputComponent } from './label-input/label-input.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { OnlineStateComponent } from './pwa/online-state/online-state.component';
+import { PwaToolbarComponent } from './pwa/pwa-toolbar/pwa-toolbar.component';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { UpdateNotificationComponent } from './update-notification/update-notification.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule],
@@ -20,7 +21,8 @@ import { PairBlockComponent } from './display-toggle-block/display-toggle-block.
     UpdateNotificationComponent,
     PwaToolbarComponent,
     OnlineStateComponent,
-    PairBlockComponent
+    DisplayToggleBlockContainerComponent,
+    DisplayToggleBlockComponent
   ],
   exports: [
     LoadingSpinnerComponent,
@@ -28,7 +30,8 @@ import { PairBlockComponent } from './display-toggle-block/display-toggle-block.
     LabelInputComponent,
     UpdateNotificationComponent,
     PwaToolbarComponent,
-    PairBlockComponent
+    DisplayToggleBlockContainerComponent,
+    DisplayToggleBlockComponent
   ],
   providers: [
     CheckForUpdateService

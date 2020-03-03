@@ -1,4 +1,4 @@
-<div class="d-flex flex-row p-2 bd-highlight">
+<!-- <div class="d-flex flex-row p-2 bd-highlight">
 
   <div class="btn-group-toggle btn-group-vertical flex-grow-0 flex-shrink-0 justify-content-start" data-toggle="buttons">
     <label class="btn flex-grow-0" *ngFor="let tab of tabs" [ngClass]=" tab.isDisplay ? 'btn-secondary': 'btn-outline-dark'">
@@ -13,4 +13,8 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<ng-template #template>
+  <ng-content></ng-content>
+</ng-template>

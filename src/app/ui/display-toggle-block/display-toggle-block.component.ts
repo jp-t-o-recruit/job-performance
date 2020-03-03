@@ -1,25 +1,29 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
-
-export interface BlockTab {
-  label: string;
-  name: string;
-  template: TemplateRef<any>;
-  isDisplay?: boolean;
-}
+import { AfterViewInit, Component, Input, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
+import { BlockTab, DisplayToggleBlockContainerComponent } from './display-toggle-block-container.component';
 
 @Component({
   selector: 'app-display-toggle-block',
   templateUrl: './display-toggle-block.component.html',
   styleUrls: ['./display-toggle-block.component.css']
 })
-export class PairBlockComponent implements OnInit {
+export class DisplayToggleBlockComponent implements AfterViewInit, BlockTab, OnDestroy {
+  @Input() label: string = '';
+  @Input() isDisplay: boolean = false;
+  @Input() canHide: boolean = true;
 
-  @Input() tabs: BlockTab[];
-  public active: BlockTab;
+  @ViewChild('template') template: TemplateRef<any>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private _container: DisplayToggleBlockContainerComponent) {
   }
 
+  ngAfterViewInit() {
+    this._container.tabs.push(this);
+  }
+
+  ngOnDestroy() {
+    const index = this._container.tabs.indexOf(this);
+    if (index) {
+      this._container.tabs.splice(index, 1);
+    }
+  }
 }

@@ -1,69 +1,49 @@
-<ng-template #ContributionFormCode>
-  <h3>
-    投稿フォーム
-  </h3>
-  <form
-    novalidate
-    #contributionForm="ngForm"
-    (submit)="contribution()">
+<h3>
+  投稿フォーム
+</h3>
 
-    <app-label-input
-      [name]="'id'"
-      [label]="'ID:'"
-      [required]="true"
-      [(ngModel)]="id"
-    ></app-label-input>
+<app-display-toggle-block-container>
+  <app-display-toggle-block [label]="'実画面'" [isDisplay]="true" [canHide]="false">
+    <form
+      novalidate
+      #contributionForm="ngForm"
+      (submit)="contribution()">
 
-    <br/>
+      <app-label-input
+        [name]="'id'"
+        [label]="'ID:'"
+        [required]="true"
+        [(ngModel)]="id"
+      ></app-label-input>
 
-    <app-label-input
-      [inputType]="'password'"
-      [name]="'password'"
-      [label]="'PW:'"
-      [required]="true"
-      [(ngModel)]="password"
-    ></app-label-input>
+      <br/>
 
-    <button
-      type="submit"
-      [disabled]="contributionForm.invalid">
-      ログイン
-    </button>
+      <app-label-input
+        [inputType]="'password'"
+        [name]="'password'"
+        [label]="'PW:'"
+        [required]="true"
+        [(ngModel)]="password"
+      ></app-label-input>
 
-  </form>
-</ng-template>
-<ng-template #ContributionFormDescription>
-  <h5 class="subtitle">
-    ページ全体 src/app/content/contribution
-  </h5>
-  <p >
-    webの標準的な入力フォームに Angular の動的制御を組み込んだサンプル。
-  </p>
-  <p >
-    フォーム送信（API通信）前のフールプルーフとして正規表現や文字数制約のチェックを入力したタイミングで実施する。
-    その入力制約状態を元にメッセージの表示やログインボタンを無効化する。
-  </p>
-  <h5 class="subtitle">
-    入力部品 src/app/ui/label-input
-  </h5>
-  <p>label要素、input要素、エラーメッセージをまとめたコンポーネント。</p>
-  <p>
-    コンポーネントとは、一連の UI 機能を再利用できるようにするための UI 内の責任領域を定義する Angular の基本機能。
-    1UI 要素として HTML および Typescript により実装する。
-  </p>
-  <p>
-    可変部分はパラメータとして指定することで、HTML 構成の実装を省力化やメンテナンス性向上を図る。
-  </p>
-</ng-template>
+      <button
+        type="submit"
+        [disabled]="contributionForm.invalid">
+        ログイン
+      </button>
 
-<app-display-toggle-block [tabs]="[
-  {
-    name: 'code',
-    label: '実画面',
-    template: ContributionFormCode
-  },{
-    name: 'description',
-    label: '説明',
-    template: ContributionFormDescription
-  }]">
-</app-display-toggle-block>
+    </form>
+  </app-display-toggle-block>
+  <app-display-toggle-block [label]="'説明'" [isDisplay]="true">
+    <h5 class="subtitle">
+      ページ全体 src/app/content/contribution-form
+    </h5>
+    <p >
+      webの標準的な入力フォームに Angular の動的制御を組み込んだサンプル。
+    </p>
+    <p >
+      フォーム送信（API通信）前のフールプルーフとして正規表現や文字数制約のチェックを入力したタイミングで実施する。
+      その入力制約状態を元にメッセージの表示やログインボタンを無効化する。
+    </p>
+  </app-display-toggle-block>
+</app-display-toggle-block-container>

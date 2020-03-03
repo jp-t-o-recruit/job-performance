@@ -1,0 +1,21 @@
+<div class="d-flex flex-row p-2 bd-highlight">
+
+  <div class="btn-group-toggle btn-group-vertical flex-grow-0 flex-shrink-0 justify-content-start" data-toggle="buttons">
+    <label class="btn flex-grow-0" *ngFor="let tab of tabs" [ngClass]=" tab.isDisplay ? 'btn-secondary': 'btn-outline-dark'">
+      <input type="checkbox" [checked]="tab.isDisplay" [disabled]="!tab.canHide" (click)="tab.isDisplay = !tab.isDisplay;" >{{tab.label}}
+    </label>
+  </div>
+
+  <div class="flex-column flex-grow-1">
+    <ng-container *ngFor="let tab of tabs">
+      <div class="card" *ngIf="tab.isDisplay">
+        <div class="card-header p-1">
+          {{tab.label}}
+        </div>
+        <div class="card-body">
+          <ng-container *ngTemplateOutlet="tab.template"></ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
