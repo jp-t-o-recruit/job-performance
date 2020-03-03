@@ -6,11 +6,6 @@ import { PwaQueueFormComponent } from '../content/pwa-queue-form/pwa-queue-form.
 import { LoginGuard } from './guard/login.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: './contribution-form',
-  },
   { canActivate: [LoginGuard], path: 'pwa-queue-form', component: PwaQueueFormComponent },
   { canActivate: [LoginGuard], path: 'production-summary', component: ProductionSummaryComponent },
   { canActivate: [LoginGuard], path: 'contribution-form', component: ContributionFormComponent },

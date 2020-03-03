@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 export interface DemoAccount {
   id: string;
@@ -32,6 +32,6 @@ export class AccountService {
   }
 
   logout() {
-    this._account = null;
+    this.account = null;
   }
 }

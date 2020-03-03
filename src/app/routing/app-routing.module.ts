@@ -13,12 +13,12 @@ const routes: Routes = [
   { path: 'unavailable', component: UnavailableComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  // { path: '**', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'content',
     loadChildren: './content-routing.module#ContentRoutingModule',
     canActivate: [LoginGuard]
-  }
+  },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

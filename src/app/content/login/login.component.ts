@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const account: DemoAccount = { id: this.id, name: `デモユーザー名`};
+    const account: DemoAccount = { id: this.id, name: `デモユーザー`};
     this._accountService.login(account);
     this._router.navigate(['/content/production-summary']);
   }

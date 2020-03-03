@@ -29,6 +29,6 @@ export class TopNavComponent {
 
   logout() {
     this._accountService.logout();
-    this._router.navigate(['']);
+    this._router.navigate(['/']);
   }
 }
