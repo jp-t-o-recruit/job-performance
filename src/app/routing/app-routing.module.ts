@@ -11,19 +11,20 @@ import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
   { path: 'unavailable', component: UnavailableComponent },
-  { path: '', component: LoginComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-  // {
-  //   path: 'content',
-  //   loadChildren: './content-routing.module#ContentRoutingModule',
-  //   // canActivate: [LoginGuard]
-  // }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  // { path: '**', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'content',
+    loadChildren: './content-routing.module#ContentRoutingModule',
+    canActivate: [LoginGuard]
+  }
 ];
 
 @NgModule({
   imports: [
-    ContentRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    // ContentRoutingModule
   ],
   exports: [RouterModule],
   providers: [

@@ -1,17 +1,16 @@
 <div class="d-flex flex-row p-2 bd-highlight">
 
-  <ul class="nav nav-tabs flex-column">
-    <li class="nav-item" *ngFor="let tab of tabs">
-      <a class="nav-link" href="#" (click)="active = tab; tab.isDisplay != tab.isDisplay;" [ngClass]="{ 'active': active === tab}">{{tab.label}}</a>
-    </li>
-  </ul>
-
-
-
-  <div class="card" *ngFor="let tab of tabs">
-    <div class="card-body" *ngIf="tab.isDisplay">
-      <ng-container *ngTemplateOutlet="tab.template"></ng-container>
-    </div>
+  <div class="btn-group-toggle btn-group-vertical flex-grow-0 flex-shrink-0 justify-content-start" data-toggle="buttons">
+    <label class="btn flex-grow-0" *ngFor="let tab of tabs" [ngClass]=" tab.isDisplay ? 'btn-secondary': 'btn-outline-dark'">
+      <input type="checkbox" [checked]="tab.isDisplay" (click)="tab.isDisplay = !tab.isDisplay;" >{{tab.label}}
+    </label>
   </div>
 
+  <div class="flex-column flex-grow-1">
+    <div class="card" *ngFor="let tab of tabs">
+      <div class="card-body" *ngIf="tab.isDisplay">
+        <ng-container *ngTemplateOutlet="tab.template"></ng-container>
+      </div>
+    </div>
+  </div>
 </div>

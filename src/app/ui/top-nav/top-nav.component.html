@@ -1,9 +1,12 @@
-<div *ngIf="account">
-  アカウント名:{{ account.name }}
+<div *ngIf="account !== null">
+
+  {{ account.name }}
+  <button type="button" (click)="logout()">ログアウト</button>
+
   <header class="navbar">
     <section class="navbar-center">
       <ng-container *ngFor="let menu of menus">
-        <a class="btn btn-link" [routerLink]="[menu.link]" routerLinkActive="active">
+        <a class="btn btn-link" [routerLink]="['/content', menu.link]" routerLinkActive="active">
           {{menu.label}}
         </a>
       </ng-container>

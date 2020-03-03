@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // TODO: デバッグ用ログイン情報設定
+    this.id = '123';
+    this.password = '123';
   }
 
   login() {

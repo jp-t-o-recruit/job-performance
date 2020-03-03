@@ -9,7 +9,7 @@ export interface DemoAccount {
 @Injectable({ providedIn: "root" })
 export class AccountService {
 
-  public changeAccount = new Subject<DemoAccount>();
+  public changeAccount = new Subject<DemoAccount | null>();
 
   public get isLogin() : boolean {
     return !!this._account;
@@ -34,5 +34,4 @@ export class AccountService {
   logout() {
     this._account = null;
   }
-
 }

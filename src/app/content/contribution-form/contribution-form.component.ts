@@ -16,6 +16,6 @@ export class ContributionFormComponent implements OnInit {
   }
 
   contribution() {
-    this.router.navigate(['/content/production-summary']);
+    // TODO: API送信
   }
 }

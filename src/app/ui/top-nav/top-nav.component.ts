@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AccountService, DemoAccount } from '../../service/pwa/account.service';
+import { Router } from '@angular/router';
 import { routes as CONTENT_ROUTES } from '../../routing/content-routing.module';
+import { AccountService, DemoAccount } from '../../service/pwa/account.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -8,20 +9,12 @@ import { routes as CONTENT_ROUTES } from '../../routing/content-routing.module';
   styleUrls: ['./top-nav.component.css']
 })
 export class TopNavComponent {
-  menus = [
-    {
-      link: '/contribution-form',
-      label: 'contribution-form'
-    },
-    {
-      link: '/content/production-summary',
-      label: 'production-summary'
-    }
-  ];
+  public menus: { link: string, label: string}[] = [];
 
   public account: DemoAccount = null;
 
   constructor(
+    private _router: Router,
     private _accountService: AccountService
   ) {
     this._accountService.changeAccount.subscribe(v => this.account = v);
@@ -32,5 +25,10 @@ export class TopNavComponent {
         label: d.path
       };
     });
+  }
+
+  logout() {
+    this._accountService.logout();
+    this._router.navigate(['']);
   }
 }

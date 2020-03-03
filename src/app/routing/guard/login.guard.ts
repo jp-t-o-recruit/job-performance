@@ -7,10 +7,7 @@ import { AccountService } from '../../service/pwa/account.service';
 export class LoginGuard implements CanActivate {
   constructor(private _accountService: AccountService) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // TODO: ログインガード判定未実装
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return this._accountService.isLogin;
   }
 }
