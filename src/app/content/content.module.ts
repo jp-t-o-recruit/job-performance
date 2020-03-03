@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UiModule } from '../ui/ui.module';
 import { LoginComponent } from './login/login.component';
+import { ContributionFormComponent } from './contribution-form/contribution-form.component';
 import { ProductionSummaryComponent } from './production-summary/production-summary.component';
 import { PwaQueueFormComponent } from './pwa-queue-form/pwa-queue-form.component';
 import { UnavailableComponent } from './unavailable/unavailable.component';
@@ -19,6 +20,7 @@ import { UnavailableComponent } from './unavailable/unavailable.component';
     ProductionSummaryComponent,
     PwaQueueFormComponent,
     LoginComponent,
+    ContributionFormComponent,
     UnavailableComponent
   ],
   exports: [

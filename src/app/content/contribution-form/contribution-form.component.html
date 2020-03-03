@@ -1,8 +1,8 @@
-<ng-template #LoginCode>
+<ng-template #ContributionFormCode>
   <form
     novalidate
-    #loginForm="ngForm"
-    (submit)="login()">
+    #contributionForm="ngForm"
+    (submit)="contribution()">
 
     <app-label-input
       [name]="'id'"
@@ -23,15 +23,15 @@
 
     <button
       type="submit"
-      [disabled]="loginForm.invalid">
+      [disabled]="contributionForm.invalid">
       ログイン
     </button>
 
   </form>
 </ng-template>
-<ng-template #LoginDescription>
+<ng-template #ContributionFormDescription>
   <h5 class="subtitle">
-    ページ全体 src/app/content/login
+    ページ全体 src/app/content/contribution
   </h5>
   <p >
     webの標準的な入力フォームに Angular の動的制御を組み込んだサンプル。
@@ -57,12 +57,10 @@
   {
     name: 'code',
     label: '実画面',
-    template: LoginCode,
-    isDisplay: true
+    template: ContributionFormCode
   },{
     name: 'description',
     label: '説明',
-    template: LoginDescription,
-    isDisplay: true
+    template: ContributionFormDescription
   }]">
 </app-pair-block>

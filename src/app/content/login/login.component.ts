@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountService, DemoAccount } from '../../service/pwa/account.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,17 @@ export class LoginComponent implements OnInit {
   id: string;
   password: string;
 
-  constructor(private router: Router) { }
+  constructor(
+    private _router: Router,
+    private _accountService: AccountService
+  ) { }
 
   ngOnInit() {
   }
 
   login() {
-    this.router.navigate(['/content/production-summary']);
+    const account: DemoAccount = { id: this.id, name: `デモユーザー名`};
+    this._accountService.login(account);
+    this._router.navigate(['/content/production-summary']);
   }
 }

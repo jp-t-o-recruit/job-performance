@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AccountService, DemoAccount } from '../../service/pwa/account.service';
 import { routes as CONTENT_ROUTES } from '../../routing/content-routing.module';
 
 @Component({
@@ -10,8 +10,8 @@ import { routes as CONTENT_ROUTES } from '../../routing/content-routing.module';
 export class TopNavComponent {
   menus = [
     {
-      link: '/login',
-      label: 'login'
+      link: '/contribution-form',
+      label: 'contribution-form'
     },
     {
       link: '/content/production-summary',
@@ -19,7 +19,13 @@ export class TopNavComponent {
     }
   ];
 
-  constructor() {
+  public account: DemoAccount = null;
+
+  constructor(
+    private _accountService: AccountService
+  ) {
+    this._accountService.changeAccount.subscribe(v => this.account = v);
+
     this.menus = CONTENT_ROUTES.map(d => {
       return {
         link: d.path,
