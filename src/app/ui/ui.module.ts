@@ -9,7 +9,7 @@ import { UpdateNotificationComponent } from './update-notification/update-notifi
 import { PwaToolbarComponent } from './pwa/pwa-toolbar/pwa-toolbar.component';
 import { OnlineStateComponent } from './pwa/online-state/online-state.component';
 import { CheckForUpdateService } from '../service/pwa/check-for-update.service';
-import { PairBlockComponent } from './pair-block/pair-block.component';
+import { PairBlockComponent } from './display-toggle-block/display-toggle-block.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule],

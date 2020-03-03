@@ -8,9 +8,9 @@ export interface BlockTab {
 }
 
 @Component({
-  selector: 'app-pair-block',
-  templateUrl: './pair-block.component.html',
-  styleUrls: ['./pair-block.component.css']
+  selector: 'app-display-toggle-block',
+  templateUrl: './display-toggle-block.component.html',
+  styleUrls: ['./display-toggle-block.component.css']
 })
 export class PairBlockComponent implements OnInit {
 
