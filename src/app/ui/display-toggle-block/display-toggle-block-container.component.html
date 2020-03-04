@@ -1,7 +1,7 @@
 <div class="d-flex flex-row p-2 bd-highlight">
 
   <div class="btn-group-toggle btn-group-vertical flex-grow-0 flex-shrink-0 justify-content-start" data-toggle="buttons">
-    <label class="btn flex-grow-0" *ngFor="let tab of tabs" [ngClass]=" tab.isDisplay ? 'btn-secondary': 'btn-outline-dark'">
+    <label class="btn flex-grow-0" *ngFor="let tab of tabs" [ngClass]="{ 'btn-secondary': !tab.isDisplay, 'btn-outline-dark': tab.isDisplay, 'disabled': !tab.canHide }">
       <input type="checkbox" [checked]="tab.isDisplay" [disabled]="!tab.canHide" (click)="tab.isDisplay = !tab.isDisplay;" >{{tab.label}}
     </label>
   </div>
@@ -18,4 +18,5 @@
       </div>
     </ng-container>
   </div>
+
 </div>

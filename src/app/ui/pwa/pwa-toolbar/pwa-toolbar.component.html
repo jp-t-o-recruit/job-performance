@@ -1,11 +1,12 @@
 <div class="d-block p-2">
   <app-online-state></app-online-state>
-  <div class="d-block p-2" *ngIf="swEnable else swNotingTemplate">
+  <div class="d-block p-2" *ngIf="swEnable; else swNotingTemplate">
     <button type="button" class="btn btn-secondary" (click)="checkState()">最新のチェック</button>
     <button type="button" class="btn btn-danger"  (click)="killServiceWorker()">ServiceWokerを削除します</button>
   </div>
   <ng-template #swNotingTemplate>
     Service Workerが無効です。
   </ng-template>
-</div>
 
+  swEnable: {{ swEnable }}
+</div>

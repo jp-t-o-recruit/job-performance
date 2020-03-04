@@ -20,11 +20,14 @@ export class LoginComponent implements OnInit {
     // TODO: デバッグ用ログイン情報設定
     this.id = '123';
     this.password = '123';
+    this.login();
   }
 
   login() {
     const account: DemoAccount = { id: this.id, name: `デモユーザー`};
     this._accountService.login(account);
-    this._router.navigate(['/content/production-summary']);
+    // TODO: デバッグ用に行き先設定
+    // this._router.navigate(['/content/production-summary']);
+    this._router.navigate(['/content/contribution-form']);
   }
 }

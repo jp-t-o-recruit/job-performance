@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { RootContainerComponent } from './root-container/root-container.component';
 import { CheckForUpdateService } from './service/pwa/check-for-update.service';
 
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,8 @@ import { CheckForUpdateService } from './service/pwa/check-for-update.service';
     AppRoutingModule,
     BrowserModule,
     ContentModule,
+    HttpClientJsonpModule,
+    HttpClientModule,
     UiModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // TODO: サービスワーカー機能デバッグのため動作させる
