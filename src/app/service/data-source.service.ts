@@ -16,11 +16,13 @@ export class DataSourceService {
   readonly postOptions = {
     headers: new HttpHeaders({
       Accept: 'application/json',
-      'Content-Type':  'application/json',
+      // 'Content-Type':  'application/json',
     }),
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.postOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+  }
 
   get(): Observable<any> {
     return this.httpClient.get(this.REST_API_SERVER,  { responseType: 'json' });
@@ -37,6 +39,7 @@ export class DataSourceService {
 
   post(params: any){
     // return this.httpClient.post(this.REST_API_SERVER, params, { responseType: 'json' }).pipe(
+
     return this.httpClient.post(this.REST_API_SERVER, params, this.postOptions).pipe(
       catchError(this.handleError)
     );

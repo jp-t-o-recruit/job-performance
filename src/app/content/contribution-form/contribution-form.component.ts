@@ -49,11 +49,5 @@ export class ContributionFormComponent implements OnInit {
       console.log('投稿後', data);
       this.getResult = data;
     });
-
-    // JSONPパターン実装
-    // this.dataSourceService.post(params).subscribe((data: any)=>{
-    //   console.log('投稿後', data);
-    //   this.getResult = data;
-    // });
   }
 }
