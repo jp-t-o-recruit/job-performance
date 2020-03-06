@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../routing/app-routing.module';
 import { UiModule } from '../ui/ui.module';
-import { LoginComponent } from './login/login.component';
 import { ContributionFormComponent } from './contribution-form/contribution-form.component';
+import { LoginComponent } from './login/login.component';
 import { ProductionSummaryComponent } from './production-summary/production-summary.component';
 import { PwaQueueFormComponent } from './pwa-queue-form/pwa-queue-form.component';
 import { UnavailableComponent } from './unavailable/unavailable.component';
@@ -14,7 +15,8 @@ import { UnavailableComponent } from './unavailable/unavailable.component';
     CommonModule,
     FormsModule,
     UiModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule,
   ],
   declarations: [
     ProductionSummaryComponent,
@@ -22,9 +24,6 @@ import { UnavailableComponent } from './unavailable/unavailable.component';
     LoginComponent,
     ContributionFormComponent,
     UnavailableComponent
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class ContentModule { }

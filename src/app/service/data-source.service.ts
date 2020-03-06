@@ -17,11 +17,12 @@ export class DataSourceService {
     headers: new HttpHeaders({
       Accept: 'application/json',
       // 'Content-Type':  'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
     }),
   };
 
   constructor(private httpClient: HttpClient) {
-    this.postOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    // this.postOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
   }
 
   get(): Observable<any> {

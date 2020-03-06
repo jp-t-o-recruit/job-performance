@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     // TODO: デバッグ用ログイン情報設定
     this.id = '123';
     this.password = '123';
-    this.login();
+    // this.login();
   }
 
   login() {

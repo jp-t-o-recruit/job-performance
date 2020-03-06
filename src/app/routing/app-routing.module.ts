@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
 import { offlineProviders } from '@ngx-pwa/offline';
-
 import { LoginComponent } from '../content/login/login.component';
 import { UnavailableComponent } from '../content/unavailable/unavailable.component';
-
-import { ContentRoutingModule } from './content-routing.module';
 import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
@@ -14,9 +10,17 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
+    // path: '',
     path: 'content',
-    loadChildren: './content-routing.module#ContentRoutingModule',
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
+    loadChildren: './content-routing.module#ContentRoutingModule'
+    // children: [
+    //   {
+    //     path: 'content',
+    //     loadChildren: './content-routing.module#ContentRoutingModule'
+    //     // , canActivate: [LoginGuard]
+    //   },
+    // ]
   },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
@@ -24,7 +28,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    // ContentRoutingModule
   ],
   exports: [RouterModule],
   providers: [
