@@ -1,3 +1,5 @@
+<!-- TODO: -->
+ログイン画面
 
 <app-display-toggle-block-container>
   <app-display-toggle-block [label]="'実画面'" [isDisplay]="true" [canHide]="false">
@@ -28,6 +30,11 @@
         [disabled]="loginForm.invalid">
         ログイン
       </button>
+
+      <hr>
+      <label class="form-label bg-info text-white">
+        実際には認証しないので、適当な文字列を入力してログインボタンをクリックしてください。
+      </label>
 
     </form>
   </app-display-toggle-block>

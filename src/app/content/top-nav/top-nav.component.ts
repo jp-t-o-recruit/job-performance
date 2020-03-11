@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { routes as CONTENT_ROUTES } from '../../routing/content-routing.module';
+import { routes as CONTENT_CHILDREN } from '../../routing/content-routing';
 import { AccountService, DemoAccount } from '../../service/pwa/account.service';
 
 @Component({
@@ -17,9 +17,13 @@ export class TopNavComponent {
     private _router: Router,
     private _accountService: AccountService
   ) {
-    this._accountService.changeAccount.subscribe(v => this.account = v);
+    this._accountService.changeAccount.subscribe(v => {
+      console.log('アカウント変わった', v);
+      this.account = v
+    });
+    this.account = this._accountService.account;
 
-    this.menus = CONTENT_ROUTES.map(d => {
+    this.menus = CONTENT_CHILDREN.map(d => {
       return {
         link: d.path,
         label: d.path

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContributionFormComponent } from '../content/contribution-form/contribution-form.component';
-import { ProductionSummaryComponent } from '../content/production-summary/production-summary.component';
-import { PwaQueueFormComponent } from '../content/pwa-queue-form/pwa-queue-form.component';
+import { routes as CONTENT_CHILDREN } from './content-routing';
+import { TopNavComponent } from '../content/top-nav/top-nav.component';
 
 export const routes: Routes = [
-  { path: 'pwa-queue-form', component: PwaQueueFormComponent },
-  { path: 'production-summary', component: ProductionSummaryComponent },
-  { path: 'contribution-form', component: ContributionFormComponent },
+  // { path: '', component: TopNavComponent, children: CONTENT_CHILDREN },
+  { path: '', redirectTo: '/top', pathMatch: 'full' },
+  { path: 'top', component: TopNavComponent, children: CONTENT_CHILDREN }
 ];
+// export const routes: Routes = CONTENT_CHILDREN;
 
 @NgModule({
   imports: [

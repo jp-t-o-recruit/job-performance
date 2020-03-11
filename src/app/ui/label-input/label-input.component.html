@@ -1,9 +1,10 @@
 <label>
   <span class="label-param">
-    {{ label }} 
+    {{ label }}
   </span>
   <span class="input-container">
     <input
+      #inputElem
       type="{{inputType}}"
       name="{{name}}"
       (input)="keyEnter($event.target.value)"

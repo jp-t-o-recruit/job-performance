@@ -13,8 +13,7 @@ export class DisplayToggleBlockComponent implements AfterViewInit, BlockTab, OnD
 
   @ViewChild('template') template: TemplateRef<any>;
 
-  constructor(private _container: DisplayToggleBlockContainerComponent) {
-  }
+  constructor(private _container: DisplayToggleBlockContainerComponent) {}
 
   ngAfterViewInit() {
     this._container.tabs.push(this);

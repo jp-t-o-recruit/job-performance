@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Input } from "@angular/core";
+import { Component, OnInit, forwardRef, Input, ViewChild, AfterViewInit } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
@@ -13,11 +13,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
   ],
   styleUrls: ["./label-input.component.css"]
 })
-export class LabelInputComponent implements OnInit, ControlValueAccessor {
+export class LabelInputComponent implements AfterViewInit, ControlValueAccessor {
   @Input() inputType: string = 'text';
   @Input() name: string;
   @Input() id: string;
   @Input() label: string;
+  @ViewChild('inputElem') inputElem: HTMLInputElement;
   isDisabled: boolean;
 
   get value(): string {
@@ -28,6 +29,9 @@ export class LabelInputComponent implements OnInit, ControlValueAccessor {
     if (this._value !== text) {
       this._value = text;
       this._onChangeCallback(text);
+      if (this.inputElem) {
+        this.inputElem.value = this._value;
+      }
     }
   }
 
@@ -37,7 +41,11 @@ export class LabelInputComponent implements OnInit, ControlValueAccessor {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngAfterViewInit() {
+    if (this.inputElem.value !== this._value) {
+      this.inputElem.value = this._value;
+    }
+  }
 
   keyEnter(v: string) {
     this.value = v;

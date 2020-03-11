@@ -29,5 +29,7 @@ export class LoginComponent implements OnInit {
     // TODO: デバッグ用に行き先設定
     // this._router.navigate(['/content/production-summary']);
     this._router.navigate(['/content/contribution-form']);
+    // this._router.navigate(['/content']);
+    // this._router.navigate(['/content/top']);
   }
 }
