@@ -9,21 +9,23 @@ import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
   { path: 'unavailable', component: UnavailableComponent },
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  // { path: '', redirectTo: 'content', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     // path: '',
     path: 'content',
     canActivate: [LoginGuard],
-    loadChildren: '../content/content.module#ContentModule' // 遅延ロードするのはルーティングを内包するコンポーネント軍自体のモジュール
+    // loadChildren: '../content/content.module#ContentModule' // 遅延ロードするのはルーティングを内包するコンポーネント軍自体のモジュール
+    loadChildren: () => import('../content/content.module').then(m => m.ContentModule),
 
     // children: [
-    //   { path: 'content', loadChildren: '../content/content.module#ContentModule' },
-    // ]
+      //   { path: 'content', loadChildren: '../content/content.module#ContentModule' },
+      // ]
   },
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'content', pathMatch: 'full' },
   // { path: '**', redirectTo: 'login', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'content', pathMatch: 'full' },
+  { path: '**', redirectTo: 'content', pathMatch: 'full' },
   // { path: '**', redirectTo: '', pathMatch: 'full' },
   // { path: '**', redirectTo: 'unavailable' }, // 404
 ];
